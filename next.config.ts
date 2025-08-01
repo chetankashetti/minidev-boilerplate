@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
   async headers() {
     // Allow same-origin, your production domain, and localhost (HTTP/HTTPS, any port)
     const frameAncestors =
-      "frame-ancestors 'self' https://minidev.fun http://localhost:* http://127.0.0.1:* https://127.0.0.1:*";
+      "frame-ancestors 'self' https://minidev.fun https://*.minidev.fun https://farcaster.xyz https://*.farcaster.xyz http://localhost:* http://127.0.0.1:* https://127.0.0.1:*";
 
     return [
       {
