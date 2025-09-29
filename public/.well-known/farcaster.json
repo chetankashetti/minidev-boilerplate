@@ -1,0 +1,26 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjgxODAyNi...",
+    "payload": "eyJkb21haW4iOiJleGFtcGxlLmNvb...",
+    "signature": "MHhmOGQ1YzQyMmU3ZTZlMWNhMzU1..."
+  },
+  "frame": {
+    "version": "1",
+    "name": "MiniDev Boilerplate",
+    "subtitle": "A complete web3 miniapp template",
+    "description": "A comprehensive Farcaster Miniapp boilerplate with wallet integration, contract interaction, and Quick Auth support.",
+    "iconUrl": "https://yourapp.com/icon.png",
+    "homeUrl": "https://yourapp.com",
+    "splashImageUrl": "https://yourapp.com/splash.png",
+    "splashBackgroundColor": "#000000",
+    "heroImageUrl": "https://yourapp.com/hero.png",
+    "tagline": "Build web3 apps for Farcaster",
+    "screenshotUrls": [
+      "https://yourapp.com/screenshot1.png",
+      "https://yourapp.com/screenshot2.png"
+    ],
+    "primaryCategory": "finance",
+    "tags": [],
+    "webhookUrl": ""
+  }
+}
