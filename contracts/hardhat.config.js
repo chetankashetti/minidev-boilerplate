@@ -37,4 +37,7 @@ module.exports = {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
   },
+  paths: {
+    sources: "./src",
+  }
 };  
