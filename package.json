@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@farcaster/miniapp-sdk": "^0.1.7",
-    "@farcaster/miniapp-wagmi-connector": "^1.0.0",
+    "@farcaster/miniapp-sdk": "^0.2.0",
+    "@farcaster/miniapp-wagmi-connector": "^1.1.0",
     "@farcaster/quick-auth": "^0.0.7",
     "@rainbow-me/rainbowkit": "^2.0.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
