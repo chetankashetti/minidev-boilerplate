@@ -33,15 +33,15 @@ import "@openzeppelin/contracts/utils/Strings.sol";
  * - Modify name, symbol, and base URI as needed
  * - Add custom logic while maintaining security patterns
  */
-contract ERC721Template is 
-    ERC721, 
-    ERC721Enumerable, 
-    ERC721URIStorage, 
-    ERC721Burnable, 
-    Ownable, 
-    Pausable 
+contract ERC721Template is
+    ERC721,
+    ERC721Enumerable,
+    ERC721URIStorage,
+    ERC721Burnable,
+    Ownable,
+    Pausable
 {
-    uint256 private _tokenIdCounter;
+    uint256 internal _tokenIdCounter; // Changed to internal for child contract access
     string private _baseTokenURI;
     uint256 public constant MAX_SUPPLY = 10000; // Maximum number of NFTs
     
@@ -75,18 +75,28 @@ contract ERC721Template is
     }
     
     /**
-     * @dev Mint a new NFT to a specific address
+     * @dev Internal mint function that can be called by child contracts
+     * This allows child contracts to implement custom minting logic while maintaining security
      * @param to Address to mint the NFT to
      * @param tokenUri URI for the token metadata
      */
-    function safeMint(address to, string memory tokenUri) public onlyOwner {
+    function _mintToken(address to, string memory tokenUri) internal {
         require(_tokenIdCounter < MAX_SUPPLY, "Maximum supply reached");
-        
+
         uint256 tokenId = _tokenIdCounter;
         _tokenIdCounter++;
-        
+
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, tokenUri);
+    }
+
+    /**
+     * @dev Mint a new NFT to a specific address (owner-only)
+     * @param to Address to mint the NFT to
+     * @param tokenUri URI for the token metadata
+     */
+    function safeMint(address to, string memory tokenUri) public virtual onlyOwner {
+        _mintToken(to, tokenUri);
     }
     
     /**
@@ -96,13 +106,9 @@ contract ERC721Template is
      */
     function batchMint(address to, string[] memory tokenURIs) public onlyOwner {
         require(_tokenIdCounter + tokenURIs.length <= MAX_SUPPLY, "Batch minting would exceed maximum supply");
-        
+
         for (uint256 i = 0; i < tokenURIs.length; i++) {
-            uint256 tokenId = _tokenIdCounter;
-            _tokenIdCounter++;
-            
-            _safeMint(to, tokenId);
-            _setTokenURI(tokenId, tokenURIs[i]);
+            _mintToken(to, tokenURIs[i]);
         }
     }
     
