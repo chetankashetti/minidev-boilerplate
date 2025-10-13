@@ -21,14 +21,14 @@ export function Tabs({ tabs, defaultTab }: TabsProps) {
     return (
         <div className="w-full">
             {/* Tab Headers */}
-            <div className="flex border-b border-gray-700 mb-6">
+            <div className="flex gap-2 mb-8 bg-white/5 p-1.5 rounded-xl border border-white/10 backdrop-blur-sm">
                 {tabs.map((tab) => (
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`flex-1 py-3 px-4 text-center font-medium transition-colors duration-200 ${activeTab === tab.id
-                                ? 'text-white border-b-2 border-blue-500 bg-gray-800'
-                                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800'
+                        className={`flex-1 py-3 px-4 text-center font-semibold rounded-lg transition-all duration-200 ${activeTab === tab.id
+                                ? 'text-white bg-primary shadow-lg shadow-primary/20 scale-[1.02]'
+                                : 'text-white/70 hover:text-white hover:bg-white/10'
                             }`}
                     >
                         {tab.title}
@@ -37,7 +37,7 @@ export function Tabs({ tabs, defaultTab }: TabsProps) {
             </div>
 
             {/* Tab Content */}
-            <div className="min-h-[200px]">
+            <div className="min-h-[200px] p-6 bg-white/5 rounded-xl border border-white/10 backdrop-blur-sm">
                 {activeTabContent}
             </div>
         </div>
