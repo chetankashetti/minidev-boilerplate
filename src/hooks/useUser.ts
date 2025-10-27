@@ -27,7 +27,7 @@ import { sdk } from "@farcaster/miniapp-sdk";
 
 interface FarcasterUser {
   fid: number;
-  primaryAddress?: string;
+  primaryAddress?: `0x${string}`;
   displayName?: string;
   username?: string;
   pfpUrl?: string;
@@ -39,7 +39,7 @@ interface FarcasterUser {
 
 export interface UserData {
   // Common fields
-  address?: string;
+  address?: `0x${string}`;
 
   // Farcaster-specific fields (only available in miniapp)
   fid?: number;
@@ -71,7 +71,7 @@ export function useUser(): UserData {
 
     async function initializeUser() {
       try {
-        setUserData((prev) => ({ ...prev, isLoading: true, error: undefined }));
+        setUserData((prev: UserData) => ({ ...prev, isLoading: true, error: undefined }));
 
         // Check if running in a Farcaster Mini App
         const isMiniApp = await sdk.isInMiniApp();
@@ -133,7 +133,7 @@ export function useUser(): UserData {
           // Regular browser flow - just use wallet connection
           if (isMounted) {
             setUserData({
-              address: isConnected ? walletAddress : undefined,
+              address: isConnected && walletAddress ? walletAddress as `0x${string}` : undefined,
               isMiniApp: false,
               isLoading: false,
             });
