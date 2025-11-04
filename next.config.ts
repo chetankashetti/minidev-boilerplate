@@ -51,10 +51,6 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: frameAncestors,
           },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
         ],
       },
     ];
