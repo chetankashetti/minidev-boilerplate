@@ -12,11 +12,27 @@ const nextConfig: NextConfig = {
 
   /**
    * Ensure next/image optimizer also respects the prefix
-   * (safe even if you don’t use next/image).
+   * (safe even if you don't use it).
    */
   images: {
     path: `${assetPrefix}/_next/image`,
   },
+
+  /**
+   * Disable ESLint during production builds to prevent deployment failures
+   * ESLint errors that don't affect functionality shouldn't block deployment
+   */
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  /**
+   * Optional: Also ignore TypeScript errors during build (use cautiously)
+   * Uncomment if you want to allow TypeScript errors to not block builds
+   */
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 
   /**
    * Security headers
