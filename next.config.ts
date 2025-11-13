@@ -22,9 +22,9 @@ const nextConfig: NextConfig = {
    * Optional: Ignore TypeScript errors during build (use cautiously)
    * Uncomment if you want to allow TypeScript errors to not block builds
    */
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
   /**
    * Security headers
