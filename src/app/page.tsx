@@ -1,7 +1,7 @@
 "use client";
 
 import { Layout } from "@/components/layout/Layout";
-import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/Tabs";
 import { useUser } from "@/hooks";
 import { NeynarExample } from "@/components/neynar/NeynarExample";
 

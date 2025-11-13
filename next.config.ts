@@ -17,17 +17,14 @@ const nextConfig: NextConfig = {
   images: {
     path: `${assetPrefix}/_next/image`,
   },
-
-  /**
-   * Disable ESLint during production builds to prevent deployment failures
+     /* Disable ESLint during production builds to prevent deployment failures
    * ESLint errors that don't affect functionality shouldn't block deployment
    */
   eslint: {
     ignoreDuringBuilds: true,
   },
-
   /**
-   * Optional: Also ignore TypeScript errors during build (use cautiously)
+   * Optional: Ignore TypeScript errors during build (use cautiously)
    * Uncomment if you want to allow TypeScript errors to not block builds
    */
   // typescript: {
