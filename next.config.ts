@@ -12,11 +12,19 @@ const nextConfig: NextConfig = {
 
   /**
    * Ensure next/image optimizer also respects the prefix
-   * (safe even if you don’t use next/image).
+   * (safe even if you don't use it).
    */
   images: {
     path: `${assetPrefix}/_next/image`,
   },
+
+  /**
+   * Optional: Ignore TypeScript errors during build (use cautiously)
+   * Uncomment if you want to allow TypeScript errors to not block builds
+   */
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 
   /**
    * Security headers
@@ -35,7 +43,7 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: frameAncestors,
           },
-        ],
+          ],
       },
     ];
   },

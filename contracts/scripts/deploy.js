@@ -16,12 +16,18 @@ async function main() {
   console.log("✅ ERC20Template deployed to:", await erc20Template.getAddress());
   // Save deployment info for frontend
   const fs = require('fs');
+  const networkName = process.env.HARDHAT_NETWORK || 'base';
+  const chainId = networkName === 'base' ? 8453 : 84532;
+  const rpcUrl = networkName === 'base' 
+    ? (process.env.BASE_RPC_URL || 'https://mainnet.base.org')
+    : (process.env.BASE_SEPOLIA_RPC_URL || 'https://sepolia.base.org');
+  
   const deploymentInfo = {
     ERC20Template: await erc20Template.getAddress(),
     deployer: deployer.address,
-    network: 'baseSepolia', // Explicitly set to Base Sepolia
-    chainId: 84532, // Base Sepolia chain ID
-    rpcUrl: process.env.BASE_SEPOLIA_RPC_URL || 'https://sepolia.base.org',
+    network: networkName,
+    chainId: chainId,
+    rpcUrl: rpcUrl,
     timestamp: new Date().toISOString(),
     transactionHash: await erc20Template.deploymentTransaction()?.hash
   };
