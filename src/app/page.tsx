@@ -3,6 +3,7 @@
 import { Layout } from "@/components/layout/Layout";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/ui/tabs";
 import { useUser } from "@/hooks";
+import { NeynarExample } from "@/components/neynar/NeynarExample";
 
 export default function App() {
   const { isLoading } = useUser();
@@ -27,6 +28,7 @@ export default function App() {
       content: (
         <div className="space-y-4">
           <h1>Tab 1 Content</h1>
+          <NeynarExample />
         </div>
       ),
     },
