@@ -53,7 +53,7 @@ export function Navbar() {
                 {isConnected && walletAddress ? (
                   <>
                     <div className="flex items-center gap-1 bg-muted rounded-lg p-0.5 sm:gap-2">
-                      <span className="hidden text-xs font-mono text-muted-foreground sm:inline sm:text-sm">
+                      <span className="hidden text-xs font-mono text-muted-foreground pl-2 sm:inline sm:text-sm">
                         {truncateAddress(walletAddress)}
                       </span>
                       <span className="text-xs font-mono text-muted-foreground sm:hidden">
