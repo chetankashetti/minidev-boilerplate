@@ -25,7 +25,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background">
+    <nav className="z-40 border-b border-border bg-background">
       <div className="container mx-auto px-4 py-3 sm:px-6 sm:py-4">
         <div className="flex items-center justify-between gap-4">
           <div className="flex min-w-0 items-center">
